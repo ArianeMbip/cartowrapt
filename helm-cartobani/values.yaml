@@ -8,7 +8,7 @@ image:
   repository: nexus.orange.cm/backend-cartobani
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "20230529.1"
+  tag: "20230529.5"
 
 imagePullSecrets: []
 nameOverride: ""
