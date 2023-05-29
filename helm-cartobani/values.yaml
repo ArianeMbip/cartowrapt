@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: nexus.orange.cm/backend-cartobani
+  repository: nexus.orange.cm:4443/backend-cartobani
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "20230529.5"
+  tag: "20230529.6"
 
 imagePullSecrets: []
 nameOverride: ""
