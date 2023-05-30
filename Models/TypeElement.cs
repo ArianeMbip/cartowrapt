@@ -12,7 +12,11 @@ namespace CartoMongo.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+<<<<<<< HEAD
         public String? Id { get; set; }
+=======
+        public string? Id { get; set; }
+>>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
 
         [Required]
         [BsonElement("nom")]

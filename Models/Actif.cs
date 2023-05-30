@@ -24,11 +24,19 @@ namespace CartoMongo.Models
     public class Actif
 
     {
+<<<<<<< HEAD
         public Actif(string Nom, string Description, string Version, string Statut) {
+=======
+        public Actif(TypeElement TypeActif, string Nom, string Description, string Version, string Statut) {
+>>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
             this.Nom = Nom;
             this.Description = Description;
             this.Version = Version;
             this.Statut = Statut;
+<<<<<<< HEAD
+=======
+            this.TypeActif = TypeActif;
+>>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
         }
 
         [BsonId]
@@ -66,7 +74,11 @@ namespace CartoMongo.Models
         [Required]
         [BsonElement("typeActif")]
         [JsonPropertyName("typeActif")]
+<<<<<<< HEAD
         public TypeElement? TypeActif { get; set; }
+=======
+        public TypeElement TypeActif { get; set; }
+>>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
 
         [BsonElement("preVersion")]
         [JsonPropertyName("preVersion")]
