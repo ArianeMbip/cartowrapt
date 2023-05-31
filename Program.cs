@@ -32,19 +32,12 @@ builder.Services.AddSingleton<DAsService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-<<<<<<< HEAD
+
 //if (app.Environment.IsDevelopment())
 //{
     app.UseSwagger();
     app.UseSwaggerUI();
 //}
-=======
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
 
 app.UseHttpsRedirection();
 
@@ -52,10 +45,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-<<<<<<< HEAD
 app.MapGet("/", () => "OK");
 
-
-=======
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
 app.Run();

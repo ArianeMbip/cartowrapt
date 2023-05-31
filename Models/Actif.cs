@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using System.Collections.Generic;
+using Sieve.Attributes;
 
 namespace CartoMongo.Models
 {
@@ -24,32 +25,27 @@ namespace CartoMongo.Models
     public class Actif
 
     {
-<<<<<<< HEAD
-        public Actif(string Nom, string Description, string Version, string Statut) {
-=======
-        public Actif(TypeElement TypeActif, string Nom, string Description, string Version, string Statut) {
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
+        public Actif(TypeElement TypeActif, string Nom, string Description, string Version, Statut Statut) {
             this.Nom = Nom;
             this.Description = Description;
             this.Version = Version;
             this.Statut = Statut;
-<<<<<<< HEAD
-=======
             this.TypeActif = TypeActif;
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
         }
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public String? Id { get; set; }
+        public string? Id { get; set; }
 
         [Required]
         [BsonElement("nom")]
         [JsonPropertyName("nom")]
+        [Sieve(CanFilter = true, CanSort = true)]
         public string Nom { get; set; }
 
         [BsonElement("criticite")]
         [JsonPropertyName("criticite")]
+        [BsonIgnoreIfNull]
         public Criticite? Criticite { get; set; }
 
         [Required]
@@ -69,16 +65,12 @@ namespace CartoMongo.Models
         [Required]
         [BsonElement("statut")]
         [JsonPropertyName("statut")]
-        public string Statut { get; set; }
+        public Statut Statut { get; set; }
 
         [Required]
         [BsonElement("typeActif")]
         [JsonPropertyName("typeActif")]
-<<<<<<< HEAD
-        public TypeElement? TypeActif { get; set; }
-=======
         public TypeElement TypeActif { get; set; }
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
 
         [BsonElement("preVersion")]
         [JsonPropertyName("preVersion")]

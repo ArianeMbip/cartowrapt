@@ -1,22 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj",
-        "projectName": "CartoMongo",
-        "projectPath": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj",
-        "packagesPath": "C:\\Users\\dszk2606\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\dszk2606\\Application Data\\NuGet\\NuGet.Config",
-=======
     "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\CartoMongo.csproj": {}
   },
   "projects": {
@@ -35,7 +19,6 @@
         "configFilePaths": [
           "C:\\Users\\smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -123,11 +106,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
-=======
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
         }
       }
     }
