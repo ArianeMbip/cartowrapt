@@ -36,17 +36,8 @@ namespace CartoMongo.Controllers
             }
 
             return dA;
-        }
+        } 
 
-<<<<<<< HEAD
-        [HttpPost]
-        public async Task<IActionResult> Post(DA newDA)
-        {
-            await _dAsService.CreateAsync(newDA);
-
-            return CreatedAtAction(nameof(Get), new { id = newDA.Id }, newDA);
-        }
-=======
         // [HttpPost]
         //public async Task<IActionResult> Post(DA newDA)
         //{
@@ -54,7 +45,6 @@ namespace CartoMongo.Controllers
 
         //    return CreatedAtAction(nameof(Get), new { id = newDA.Id }, newDA);
         //}
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
 
         [HttpPut("{id:length(24)}")]
         public async Task<IActionResult> Update(string id, DA updatedDA)

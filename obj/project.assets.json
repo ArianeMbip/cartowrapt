@@ -11606,26 +11606,12 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\dszk2606\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\smart\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj",
-      "projectName": "CartoMongo",
-      "projectPath": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj",
-      "packagesPath": "C:\\Users\\dszk2606\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\dszk2606\\Application Data\\NuGet\\NuGet.Config",
-=======
       "projectUniqueName": "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\CartoMongo.csproj",
       "projectName": "CartoMongo",
       "projectPath": "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\CartoMongo.csproj",
@@ -11638,7 +11624,6 @@
       "configFilePaths": [
         "C:\\Users\\smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11726,12 +11711,16 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
-=======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problème de lecture du fichier cache C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -36,12 +36,9 @@ public class TypeElementsService
 
     public async Task RemoveAsync(string id) =>
         await _typeElementsCollection.DeleteOneAsync(x => x.Id == id);
-<<<<<<< HEAD
-=======
 
     internal Task GetAsync(TypeElement typeActif)
     {
         throw new NotImplementedException();
     }
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
 }

@@ -17,15 +17,7 @@ namespace CartoMongo.Controllers
     public class ActifsController : ControllerBase
     {
         private readonly ActifsService _actifsService;
-<<<<<<< HEAD
-
-        public ActifsController(ActifsService actifsService) =>
-            _actifsService = actifsService;
-
-        [HttpGet]
-=======
         private readonly TypeElementsService _typeElementsService;
-        private readonly DAsService _dAsService;
 
         public ActifsController(ActifsService actifsService, TypeElementsService typeElementsService)
         {
@@ -35,7 +27,6 @@ namespace CartoMongo.Controllers
             
 
     [HttpGet]
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
         public async Task<List<Actif>> Get() =>
             await _actifsService.GetAsync();
 
@@ -48,19 +39,12 @@ namespace CartoMongo.Controllers
             {
                 return NotFound();
             }
-<<<<<<< HEAD
-
-=======
-             
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
             return actif;
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(Actif newActif)
         {
-<<<<<<< HEAD
-=======
             // Récupérez l'identifiant du type d'actif spécifié dans le corps de la requête
             //string typeActifId = newActif.TypeActif.Id;
 
@@ -79,7 +63,6 @@ namespace CartoMongo.Controllers
             newActif.TypeActif = typeActif;
 
             // Appeler la méthode de création de l'actif dans le service ActifsService
->>>>>>> bdb7a1ac6a2bb452098173ce94631ecb80a4f915
             await _actifsService.CreateAsync(newActif);
 
             return CreatedAtAction(nameof(Get), new { id = newActif.Id }, newActif);
