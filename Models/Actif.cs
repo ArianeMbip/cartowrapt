@@ -34,8 +34,7 @@ namespace CartoMongo.Models
         }
 
         [BsonId]
-        [BsonRepresentation(BsonType.
-            ectId)]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
 
         [Required]
