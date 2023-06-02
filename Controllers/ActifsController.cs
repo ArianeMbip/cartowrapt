@@ -26,16 +26,6 @@ namespace CartoMongo.Controllers
             _typeElementsService = typeElementsService;
         }
 
-
-        [HttpOptions]
-        public HttpResponseMessage GetOptions()
-        {
-            var resp = new HttpResponseMessage(HttpStatusCode.OK);
-            resp.Headers.Add("Allow", "GET, POST, PUT, DELETE, OPTIONS");
-            return resp;
-        }
-
-
         [HttpGet]
         public async Task<List<Actif>> Get() =>
             await _actifsService.GetAsync();
