@@ -30,6 +30,13 @@ builder.Services.AddSingleton<RolesService>();
 builder.Services.AddSingleton<DAsService>();
 builder.Services.AddHealthChecks();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllHeaders",
+        builder => builder.WithOrigins("*")
+                          .AllowAnyHeader()
+                          .WithMethods("OPTIONS", "GET", "POST", "PUT", "DELETE"));
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
