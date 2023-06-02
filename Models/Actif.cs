@@ -25,6 +25,7 @@ namespace CartoMongo.Models
     public class Actif
 
     {
+        
         public Actif(TypeElement TypeActif, string Nom, string Description, string Version, Statut Statut) {
             this.Nom = Nom;
             this.Description = Description;
@@ -35,12 +36,14 @@ namespace CartoMongo.Models
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        [BsonIgnoreIfNull]
         public string? Id { get; set; }
 
         [Required]
         [BsonElement("nom")]
         [JsonPropertyName("nom")]
         [Sieve(CanFilter = true, CanSort = true)]
+        [BsonIgnoreIfNull]
         public string Nom { get; set; }
 
         [BsonElement("criticite")]
@@ -51,15 +54,18 @@ namespace CartoMongo.Models
         [Required]
         [BsonElement("description")]
         [JsonPropertyName("description")]
+        
         public string Description { get; set; }
 
         [Required] 
         [BsonElement("version")]
         [JsonPropertyName("version")]
+        
         public string Version { get; set; }
 
         [BsonElement("icone")]
         [JsonPropertyName("icone")]
+        [BsonIgnoreIfNull]
         public string? Icone { get; set; }
 
         [Required]
@@ -74,10 +80,12 @@ namespace CartoMongo.Models
 
         [BsonElement("preVersion")]
         [JsonPropertyName("preVersion")]
+        [BsonIgnoreIfNull]
         public Actif? PreVersion { get; set; }
 
         [BsonElement("hierarchie")]
         [JsonPropertyName("hierarchie")]
+        [BsonIgnoreIfNull]
         public Actif? Hierarchie { get; set; }
 
         [BsonElement("personne")]
@@ -86,6 +94,7 @@ namespace CartoMongo.Models
 
         [BsonElement("valeurAttribut")]
         [JsonPropertyName("valeurAttribut")]
+        [BsonIgnoreIfNull]
         public List<ValeurAttribut>? ValeurAttribut { get; set; }
 
     }

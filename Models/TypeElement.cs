@@ -22,6 +22,7 @@ namespace CartoMongo.Models
 
         [BsonElement("icone")]
         [JsonPropertyName("icone")]
+        [BsonIgnoreIfNull]
         public string? Icone { get; set; } 
 
         [Required]
