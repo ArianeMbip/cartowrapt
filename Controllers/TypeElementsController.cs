@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CartoMongo.Models;
 using CartoMongo.Services;
 using MongoDB.Bson;
+using System.Net;
 
 namespace CartoMongo.Controllers
 {
@@ -19,6 +20,14 @@ namespace CartoMongo.Controllers
 
         public TypeElementsController(TypeElementsService typeElementsService) =>
             _typeElementsService = typeElementsService;
+
+        [HttpOptions]
+        public HttpResponseMessage GetOptions()
+        {
+            var resp = new HttpResponseMessage(HttpStatusCode.OK);
+            resp.Headers.Add("Allow", "GET, POST, PUT, DELETE, OPTIONS");
+            return resp;
+        }
 
         [HttpGet]
         public async Task<List<TypeElement>> Get() =>

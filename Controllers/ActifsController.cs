@@ -9,6 +9,7 @@ using CartoMongo.Models;
 using CartoMongo.Services;
 using MongoDB.Driver;
 using MongoDB.Bson;
+using System.Net;
 
 namespace CartoMongo.Controllers
 {
@@ -24,9 +25,18 @@ namespace CartoMongo.Controllers
             _actifsService = actifsService;
             _typeElementsService = typeElementsService;
         }
-            
 
-    [HttpGet]
+
+        [HttpOptions]
+        public HttpResponseMessage GetOptions()
+        {
+            var resp = new HttpResponseMessage(HttpStatusCode.OK);
+            resp.Headers.Add("Allow", "GET, POST, PUT, DELETE, OPTIONS");
+            return resp;
+        }
+
+
+        [HttpGet]
         public async Task<List<Actif>> Get() =>
             await _actifsService.GetAsync();
 

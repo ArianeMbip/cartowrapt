@@ -28,6 +28,7 @@ builder.Services.AddSingleton<EnvironnementsService>();
 builder.Services.AddSingleton<IconesService>();
 builder.Services.AddSingleton<RolesService>();
 builder.Services.AddSingleton<DAsService>();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -45,6 +46,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "OK");
+app.MapHealthChecks("/");
 
 app.Run();
