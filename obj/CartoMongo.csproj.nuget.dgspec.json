@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\CartoMongo.csproj": {}
+    "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\CartoMongo.csproj": {
+    "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\CartoMongo.csproj",
+        "projectUniqueName": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj",
         "projectName": "CartoMongo",
-        "projectPath": "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\CartoMongo.csproj",
-        "packagesPath": "C:\\Users\\smart\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\smart\\Desktop\\cartoBackMongo\\CartoMongo\\obj\\",
+        "projectPath": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\CartoMongo.csproj",
+        "packagesPath": "C:\\Users\\dszk2606\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dszk2606\\Desktop\\MADI\\Projects\\Cartographie-SI\\backend-GAIT\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\smart\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\dszk2606\\Application Data\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -118,7 +114,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
