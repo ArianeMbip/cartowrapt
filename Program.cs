@@ -36,8 +36,7 @@ builder.Services.AddCors(options =>
         builder.SetIsOriginAllowed(_ => true)
         .AllowAnyMethod()
         .AllowAnyHeader()
-        .AllowCredentials()
-        .WithExposedHeaders("X-Pagination"));
+        .AllowCredentials());
 });
 
 var app = builder.Build();
