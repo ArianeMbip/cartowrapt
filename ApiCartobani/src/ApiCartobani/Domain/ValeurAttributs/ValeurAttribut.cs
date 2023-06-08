@@ -27,7 +27,7 @@ public class ValeurAttribut : BaseEntity
     [ForeignKey("Attribut")]
     [Sieve(CanFilter = true, CanSort = true)]
     public virtual Guid Attribut { get; private set; }
-    public virtual Attribut Attribut { get; private set; }
+    public virtual Attribut attribut { get; private set; }
 
     [Required]
     [JsonIgnore]
@@ -35,7 +35,7 @@ public class ValeurAttribut : BaseEntity
     [ForeignKey("Environnement")]
     [Sieve(CanFilter = true, CanSort = true)]
     public virtual Guid Environnement { get; private set; }
-    public virtual Environnement Environnement { get; private set; }
+    public virtual Environnement environnement { get; private set; }
 
 
     public static ValeurAttribut Create(ValeurAttributForCreationDto valeurAttributForCreationDto)

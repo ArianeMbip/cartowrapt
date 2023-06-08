@@ -46,6 +46,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Query;
+using MongoFramework;
 
 public sealed class CartobaniDbContext : DbContext
 {
@@ -54,13 +55,15 @@ public sealed class CartobaniDbContext : DbContext
     private readonly IDateTimeProvider _dateTimeProvider;
 
     public CartobaniDbContext(
-        DbContextOptions<CartobaniDbContext> options, ICurrentUserService currentUserService, IMediator mediator, IDateTimeProvider dateTimeProvider) : base(options)
+        DbContextOptions<CartobaniDbContext> options, ICurrentUserService currentUserService, IMediator mediator, IDateTimeProvider dateTimeProvider) 
+            : base(options)
     {
         _currentUserService = currentUserService;
         _mediator = mediator;
         _dateTimeProvider = dateTimeProvider;
     }
 
+ 
     #region DbSet Region - Do Not Delete
     public DbSet<TypeElement> TypeElements { get; set; }
     public DbSet<Attribut> Attributs { get; set; }

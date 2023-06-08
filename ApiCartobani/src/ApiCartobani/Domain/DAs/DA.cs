@@ -10,12 +10,13 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using ApiCartobani.Domain.Actifs;
-using ApiCartobani.Domain.s;
-using ApiCartobani.Domain.s;
-using ApiCartobani.Domain.s;
-using ApiCartobani.Domain.s;
-using ApiCartobani.Domain.s;
-using ApiCartobani.Domain.s;
+using ApiCartobani.Domain.Historiques;
+using ApiCartobani.Domain.ValeurAttributs;
+using ApiCartobani.Domain.Univers;
+using ApiCartobani.Domain.InterfacesUtilisateur;
+using ApiCartobani.Domain.Contacts;
+using ApiCartobani.Domain.Composants;
+using ApiCartobani.Domain.PiecesJointes;
 
 
 public class DA : BaseEntity
@@ -45,7 +46,7 @@ public class DA : BaseEntity
 
     public virtual string SousDomaineFonctionnel { get; private set; }
 
-    public virtual string Fonction                     { get; private set; }
+    public virtual string Fonction { get; private set; }
 
     [Required]
     public virtual string Acteurs { get; private set; }
@@ -113,7 +114,7 @@ public class DA : BaseEntity
         newDA.Status = dAForCreationDto.Status;
         newDA.DomaineFonctionnel = dAForCreationDto.DomaineFonctionnel;
         newDA.SousDomaineFonctionnel = dAForCreationDto.SousDomaineFonctionnel;
-        newDA.Fonction                     = dAForCreationDto.Fonction                    ;
+        newDA.Fonction = dAForCreationDto.Fonction                    ;
         newDA.Acteurs = dAForCreationDto.Acteurs;
         newDA.CasUtilisation = dAForCreationDto.CasUtilisation;
         newDA.DiagrammeSequence = dAForCreationDto.DiagrammeSequence;
@@ -138,7 +139,7 @@ public class DA : BaseEntity
         Status = dAForUpdateDto.Status;
         DomaineFonctionnel = dAForUpdateDto.DomaineFonctionnel;
         SousDomaineFonctionnel = dAForUpdateDto.SousDomaineFonctionnel;
-        Fonction                     = dAForUpdateDto.Fonction                    ;
+        Fonction = dAForUpdateDto.Fonction                    ;
         Acteurs = dAForUpdateDto.Acteurs;
         CasUtilisation = dAForUpdateDto.CasUtilisation;
         DiagrammeSequence = dAForUpdateDto.DiagrammeSequence;

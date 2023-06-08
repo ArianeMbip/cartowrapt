@@ -12,12 +12,12 @@ using System.Runtime.Serialization;
 using Sieve.Attributes;
 using ApiCartobani.Domain.TypeElements;
 using ApiCartobani.Domain.Actifs;
-using ApiCartobani.Domain.Actifs;
-using ApiCartobani.Domain.s;
-using ApiCartobani.Domain.s;
+using ApiCartobani.Domain.GestionnaireActif;
+using ApiCartobani.Domain.ValeurAttributs;
+using MongoFramework;
 
 
-public class Actif : BaseEntity
+public class Actif : MongoDbEntity
 {
     [Required]
     [Sieve(CanFilter = true, CanSort = true)]
@@ -79,7 +79,7 @@ public class Actif : BaseEntity
     [IgnoreDataMember]
     [ForeignKey("Actif")]
     public virtual Guid Hierarchie { get; private set; }
-    public virtual Actif ParentActif { get; private set; }
+    public virtual Actif parentActif { get; private set; }
 
     [JsonIgnore]
     [IgnoreDataMember]

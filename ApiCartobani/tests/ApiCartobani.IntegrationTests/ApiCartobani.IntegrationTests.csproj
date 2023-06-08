@@ -13,10 +13,14 @@
     <PackageReference Include="Docker.DotNet" Version="3.125.5" />
     <PackageReference Include="DotNet.Testcontainers" Version="1.5.0" />
     <PackageReference Include="Ductus.FluentDocker" Version="2.10.57" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
     <PackageReference Include="MediatR" Version="11.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.19.2" />
+    <PackageReference Include="MongoFramework" Version="0.28.1" />
     <PackageReference Include="Moq" Version="4.18.2" />
     <PackageReference Include="Npgsql" Version="6.0.7" />
     <PackageReference Include="NUnit" Version="3.13.3" />

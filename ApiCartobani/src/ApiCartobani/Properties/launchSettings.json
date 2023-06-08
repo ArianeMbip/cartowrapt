@@ -4,6 +4,21 @@
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
+
+      "CartoDb": {
+        //"ConnectionString": "mongodb://root:Orange19@172.26.76.96:30722",
+        "ConnectionString": "mongodb://localhost:27017",
+        "DatabaseName": "cartodb",
+        "ActifCollectionName": "Actifs",
+        "TypeElementCollectionName": "TypeElements",
+        "DACollectionName": "DAs",
+        "FluxCollectionName": "Flux",
+        "IconeCollectionName": "Icones",
+        "EnvironnementCollectionName": "Environnements",
+        "RoleCollectionName": "Roles"
+
+      },
+
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "AUTH_AUDIENCE": "Audience",

@@ -12,9 +12,13 @@
     <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="Docker.DotNet" Version="3.125.5" />
     <PackageReference Include="DotNet.Testcontainers" Version="1.5.0" />
+    <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
     <PackageReference Include="MediatR" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.10" />
+    <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
+    <PackageReference Include="MongoDB.Driver.Core" Version="2.19.2" />
+    <PackageReference Include="MongoFramework" Version="0.28.1" />
     <PackageReference Include="Moq" Version="4.18.2" />
     <PackageReference Include="NUnit" Version="3.13.3" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />

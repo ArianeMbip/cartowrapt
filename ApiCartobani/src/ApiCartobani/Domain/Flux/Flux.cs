@@ -11,9 +11,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using Sieve.Attributes;
 using ApiCartobani.Domain.Actifs;
-using ApiCartobani.Domain.Actifs;
 using ApiCartobani.Domain.TypeElements;
-using ApiCartobani.Domain.s;
+using ApiCartobani.Domain.ValeurAttributs;
 
 
 public class Flux : BaseEntity
@@ -36,7 +35,7 @@ public class Flux : BaseEntity
     [ForeignKey("Actif")]
     [Sieve(CanFilter = true, CanSort = true)]
     public virtual Guid Sortie { get; private set; }
-    public virtual Actif Actif { get; private set; }
+    public virtual Actif actif { get; private set; }
 
     [Required]
     public virtual string Description { get; private set; }

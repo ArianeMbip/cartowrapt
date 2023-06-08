@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using Sieve.Attributes;
-using ApiCartobani.Domain.s;
+using ApiCartobani.Domain.Attributs;
 
 
 public class TypeElement : BaseEntity

@@ -4,9 +4,10 @@ using ApiCartobani.Domain;
 using ApiCartobani.Databases;
 using SharedKernel.Exceptions;
 using Microsoft.EntityFrameworkCore;
+using MongoFramework;
 
 public interface IGenericRepository<TEntity> : IApiCartobaniService
-    where TEntity : BaseEntity
+    where TEntity : MongoDbEntity
 {
     IQueryable<TEntity> Query();
     Task<TEntity> GetByIdOrDefault(Guid id, bool withTracking = true, CancellationToken cancellationToken = default);

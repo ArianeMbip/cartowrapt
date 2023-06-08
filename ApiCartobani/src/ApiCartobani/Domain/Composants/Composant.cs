@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.Serialization;
 using Sieve.Attributes;
 using ApiCartobani.Domain.TypeElements;
-using ApiCartobani.Domain.s;
+using ApiCartobani.Domain.ValeurAttributs;
 
 
 public class Composant : BaseEntity
