@@ -9,7 +9,7 @@ using ApiCartobani.Domain.ValeurAttributs;
 using ApiCartobani.Domain.Actifs;
 using ApiCartobani.Domain.DAs;
 using ApiCartobani.Domain.Icones;
-using ApiCartobani.Domain.Univers;
+using ApiCartobani.Domain.Universs;
 using ApiCartobani.Domain.Flux;
 using ApiCartobani.Domain.Composants;
 using ApiCartobani.Domain.InterfacesUtilisateur;
@@ -18,18 +18,17 @@ using ApiCartobani.Domain.Contacts;
 using ApiCartobani.Domain.PiecesJointes;
 using ApiCartobani.Domain.Historiques;
 using ApiCartobani.Domain.Environnements;
-using ApiCartobani.Domain.GestionnaireActif;
+using ApiCartobani.Domain.GestionnaireActifs;
 using ApiCartobani.Domain.RolePrivileges;
 using MediatR;
-using ApiCartobani.Domain.RolePermissions;
-using ApiCartobani.Domain.Users;
+
 using ApiCartobani.Domain.TypeElements;
 using ApiCartobani.Domain.Attributs;
 using ApiCartobani.Domain.ValeurAttributs;
 using ApiCartobani.Domain.Actifs;
 using ApiCartobani.Domain.DAs;
 using ApiCartobani.Domain.Icones;
-using ApiCartobani.Domain.Univers;
+using ApiCartobani.Domain.Universs;
 using ApiCartobani.Domain.Flux;
 using ApiCartobani.Domain.Composants;
 using ApiCartobani.Domain.InterfacesUtilisateur;
@@ -38,64 +37,121 @@ using ApiCartobani.Domain.Contacts;
 using ApiCartobani.Domain.PiecesJointes;
 using ApiCartobani.Domain.Historiques;
 using ApiCartobani.Domain.Environnements;
-using ApiCartobani.Domain.GestionnaireActif;
+using ApiCartobani.Domain.GestionnaireActifs;
 using ApiCartobani.Domain.RolePrivileges;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
+//using Microsoft.EntityFrameworkCore;
+//using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Query;
-using MongoFramework;
+//using Microsoft.EntityFrameworkCore.Query;
+//using MongoFramework;
+//using Microsoft.EntityFrameworkCore.Storage;
+//using Microsoft.Extensions.Options;
+using ParkBee.MongoDb;
+using MongoDB.Driver;
 
-public sealed class CartobaniDbContext : DbContext
+//public sealed class CartobaniDbContext : DbContext
+
+public interface ICartobaniDbContext
+{
+}
+
+public sealed class CartobaniDbContext : ICartobaniDbContext
 {
     private readonly ICurrentUserService _currentUserService;
     private readonly IMediator _mediator;
     private readonly IDateTimeProvider _dateTimeProvider;
+    public readonly IMongoDatabase _database;
 
-    public CartobaniDbContext(
-        DbContextOptions<CartobaniDbContext> options, ICurrentUserService currentUserService, IMediator mediator, IDateTimeProvider dateTimeProvider) 
-            : base(options)
+    //public CartobaniDbContext(
+    //    DbContextOptions<CartobaniDbContext> options, ICurrentUserService currentUserService, IMediator mediator, IDateTimeProvider dateTimeProvider) 
+    //        : base(options)
+
+    //public CartobaniDbContext(IMongoContextOptionsBuilder optionsBuilder, ICurrentUserService currentUserService, IMediator mediator, IDateTimeProvider dateTimeProvider)
+    public CartobaniDbContext(ICurrentUserService currentUserService, IMediator mediator, IDateTimeProvider dateTimeProvider)
+
     {
         _currentUserService = currentUserService;
         _mediator = mediator;
         _dateTimeProvider = dateTimeProvider;
+
+        var mongoClient = new MongoClient("mongodb://localhost:27017");
+       // var mongoClient = new MongoClient("mongodb://172.21.6.30:27017/perco_om_test?maxPoolSize=300");
+        _database = mongoClient.GetDatabase("testmadb11");
+
+        //_database = new MongoClient("mongodb://localhost:27017").GetDatabase("CartoDb");
+
     }
 
- 
-    #region DbSet Region - Do Not Delete
-    public DbSet<TypeElement> TypeElements { get; set; }
-    public DbSet<Attribut> Attributs { get; set; }
-    public DbSet<ValeurAttribut> ValeurAttributs { get; set; }
-    public DbSet<Actif> Actifs { get; set; }
-    public DbSet<DA> DAs { get; set; }
-    public DbSet<Icone> Icones { get; set; }
-    public DbSet<Univers> Univers { get; set; }
-    public DbSet<Flux> Flux { get; set; }
-    public DbSet<Composant> Composants { get; set; }
-    public DbSet<InterfaceUtilisateur> InterfacesUtilisateur { get; set; }
-    public DbSet<Fonctionnalite> Fonctionnalites { get; set; }
-    public DbSet<Contact> Contacts { get; set; }
-    public DbSet<PieceJointe> PiecesJointes { get; set; }
-    public DbSet<Historique> Historiques { get; set; }
-    public DbSet<Environnement> Environnements { get; set; }
-    public DbSet<GestionnaireActif> GestionnaireActif { get; set; }
-    public DbSet<RolePrivilege> RolePrivileges { get; set; }
-    public DbSet<UserRole> UserRoles { get; set; }
-    public DbSet<User> Users { get; set; }
-    public DbSet<RolePermission> RolePermissions { get; set; }
-    #endregion DbSet Region - Do Not Delete
+    //public IMongoCollection<User> Users { get; set; }
+    //public DbSet<User> UsersSet { get; set; }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    // protected override async Task OnConfiguring()
+    // {
+    //     await OptionsBuilder.Entity<User>(async entity =>
+    //     {
+    //         var usersCollection = entity.ToCollection("ApplicationUsers");
+    //         var searchByEmail = new CreateIndexModel<Permit>(Builders<User>.IndexKeys
+    //             .Ascending(u => u.Email));
+
+    //         await permitsCollection.Indexes.CreateOneAsync(searchByEmail);
+
+    //         entity.HasKey(p => p.UserId);
+    //     });
+    // }
+
+    public int SaveChanges()
     {
-        base.OnModelCreating(modelBuilder);
-        modelBuilder.FilterSoftDeletedRecords();
-        /* any query filters added after this will override soft delete 
-                https://docs.microsoft.com/en-us/ef/core/querying/filters
-                https://github.com/dotnet/efcore/issues/10275
-        */
+        //UpdateAuditFields();
+        //var result = base.SaveChanges();
+        //_dispatchDomainEvents().GetAwaiter().GetResult();
+        return 1; // result;
+    }
 
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new())
+    {
+        //UpdateAuditFields();
+        //var result = await base.SaveChangesAsync(cancellationToken);
+        //await _dispatchDomainEvents();
+        return 1; // result;
+    }
+}
+
+
+
+     //#region DbSet Region - Do Not Delete
+     //public DbSet<TypeElement> TypeElements { get; set; }
+     //public DbSet<Attribut> Attributs { get; set; }
+     //public DbSet<ValeurAttribut> ValeurAttributs { get; set; }
+     //public DbSet<Actif> Actifs { get; set; }
+     //public DbSet<DA> DAs { get; set; }
+     //public DbSet<Icone> Icones { get; set; }
+     //public DbSet<Univers> Univers { get; set; }
+     //public DbSet<Flux> Flux { get; set; }
+     //public DbSet<Composant> Composants { get; set; }
+     //public DbSet<InterfaceUtilisateur> InterfacesUtilisateur { get; set; }
+     //public DbSet<Fonctionnalite> Fonctionnalites { get; set; }
+     //public DbSet<Contact> Contacts { get; set; }
+     //public DbSet<PieceJointe> PiecesJointes { get; set; }
+     //public DbSet<Historique> Historiques { get; set; }
+     //public DbSet<Environnement> Environnements { get; set; }
+     //public DbSet<GestionnaireActif> GestionnaireActif { get; set; }
+     //public DbSet<RolePrivilege> RolePrivileges { get; set; }
+     //public DbSet<UserRole> UserRoles { get; set; }
+     //public DbSet<User> Users { get; set; }
+     //public DbSet<RolePermission> RolePermissions { get; set; }
+     //#endregion DbSet Region - Do Not Delete
+
+     //protected override void OnModelCreating(ModelBuilder modelBuilder)
+     //{
+     //    base.OnModelCreating(modelBuilder);
+     //    modelBuilder.FilterSoftDeletedRecords();
+     //    /* any query filters added after this will override soft delete 
+     //            https://docs.microsoft.com/en-us/ef/core/querying/filters
+     //            https://github.com/dotnet/efcore/issues/10275
+     //    */
+    /*
         #region Entity Database Config Region - Only delete if you don't want to automatically add configurations
         modelBuilder.ApplyConfiguration(new TypeElementConfiguration());
         modelBuilder.ApplyConfiguration(new AttributConfiguration());
@@ -176,8 +232,9 @@ public sealed class CartobaniDbContext : DbContext
             }
         }
     }
-}
 
+
+/*
 public static class Extensions
 {
     public static void FilterSoftDeletedRecords(this ModelBuilder modelBuilder)
@@ -196,4 +253,4 @@ public static class Extensions
             mutableEntityType.SetQueryFilter(lambdaExpression);
         }
     }
-}
+}*/

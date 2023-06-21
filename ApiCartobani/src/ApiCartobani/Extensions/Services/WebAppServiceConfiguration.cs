@@ -14,6 +14,10 @@ using Sieve.Services;
 using System.Reflection;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using ApiCartobani.Databases;
+using ParkBee.MongoDb.DependencyInjection;
+using ParkBee.MongoDb;
+//using MongoFramework;
 
 public static class WebAppServiceConfiguration
 {
@@ -34,6 +38,8 @@ public static class WebAppServiceConfiguration
         builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
         builder.Services.AddScoped<SieveProcessor>();
 
+        builder.Services.AddScoped<CartobaniDbContext>();
+
         // registers all services that inherit from your base service interface - IApiCartobaniService
         builder.Services.AddBoundaryServices(Assembly.GetExecutingAssembly());
 
@@ -41,7 +47,9 @@ public static class WebAppServiceConfiguration
             .AddMvc(options => options.Filters.Add<ErrorHandlerFilterAttribute>())
             .AddJsonOptions(opt => opt.JsonSerializerOptions.AddDateOnlyConverters());
 
-        if(builder.Environment.EnvironmentName != Consts.Testing.FunctionalTestingEnvName)
+       
+
+        if (builder.Environment.EnvironmentName != Consts.Testing.FunctionalTestingEnvName)
         {
             var typeAdapterConfig = TypeAdapterConfig.GlobalSettings;
             typeAdapterConfig.Scan(Assembly.GetExecutingAssembly());

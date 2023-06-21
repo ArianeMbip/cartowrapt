@@ -12,7 +12,7 @@ public sealed class DARepository : GenericRepository<DA>, IDARepository
 {
     private readonly CartobaniDbContext _dbContext;
 
-    public DARepository(CartobaniDbContext dbContext) : base(dbContext)
+    public DARepository(CartobaniDbContext dbContext) : base(dbContext, "DAs")
     {
         _dbContext = dbContext;
     }

@@ -12,7 +12,7 @@ public sealed class TypeElementRepository : GenericRepository<TypeElement>, ITyp
 {
     private readonly CartobaniDbContext _dbContext;
 
-    public TypeElementRepository(CartobaniDbContext dbContext) : base(dbContext)
+    public TypeElementRepository(CartobaniDbContext dbContext) : base(dbContext, "TypeElements")
     {
         _dbContext = dbContext;
     }

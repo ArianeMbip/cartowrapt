@@ -12,12 +12,12 @@ using System.Runtime.Serialization;
 using Sieve.Attributes;
 using ApiCartobani.Domain.TypeElements;
 using ApiCartobani.Domain.Actifs;
-using ApiCartobani.Domain.GestionnaireActif;
+using ApiCartobani.Domain.GestionnaireActifs;
 using ApiCartobani.Domain.ValeurAttributs;
 using MongoFramework;
 
 
-public class Actif : MongoDbEntity
+public class Actif : BaseEntity
 {
     [Required]
     [Sieve(CanFilter = true, CanSort = true)]
@@ -128,6 +128,5 @@ public class Actif : MongoDbEntity
         QueueDomainEvent(new ActifUpdated(){ Id = Id });
         return this;
     }
-    
     protected Actif() { } // For EF + Mocking
 }

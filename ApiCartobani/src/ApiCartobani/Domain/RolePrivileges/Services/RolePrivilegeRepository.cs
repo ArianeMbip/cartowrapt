@@ -12,7 +12,7 @@ public sealed class RolePrivilegeRepository : GenericRepository<RolePrivilege>, 
 {
     private readonly CartobaniDbContext _dbContext;
 
-    public RolePrivilegeRepository(CartobaniDbContext dbContext) : base(dbContext)
+    public RolePrivilegeRepository(CartobaniDbContext dbContext) : base(dbContext, "RolePrivileges")
     {
         _dbContext = dbContext;
     }

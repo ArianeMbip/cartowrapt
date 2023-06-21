@@ -22,7 +22,7 @@ public class UpdateActifRecordTests : TestBase
         var fakeActifParentOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifParentOne);
 
-        var fakeActifParentOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
+        fakeActifParentOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifParentOne);
 
         var fakeActif = FakeActif.Generate(new FakeActifForCreationDto()

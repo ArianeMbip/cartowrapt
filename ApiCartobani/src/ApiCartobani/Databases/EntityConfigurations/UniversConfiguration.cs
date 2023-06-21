@@ -1,6 +1,6 @@
 namespace ApiCartobani.Databases.EntityConfigurations;
 
-using ApiCartobani.Domain.Univers;
+using ApiCartobani.Domain.Universs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

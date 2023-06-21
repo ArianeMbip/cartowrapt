@@ -22,7 +22,7 @@ public class CreateActifTests : TestBase
         var fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne);
 
-        var fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
+         fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne);
 
         var fakeActif = new FakeActifForCreationDto()

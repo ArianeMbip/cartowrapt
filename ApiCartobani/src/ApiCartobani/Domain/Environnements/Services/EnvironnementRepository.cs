@@ -12,7 +12,7 @@ public sealed class EnvironnementRepository : GenericRepository<Environnement>, 
 {
     private readonly CartobaniDbContext _dbContext;
 
-    public EnvironnementRepository(CartobaniDbContext dbContext) : base(dbContext)
+    public EnvironnementRepository(CartobaniDbContext dbContext) : base(dbContext, "Environnements")
     {
         _dbContext = dbContext;
     }

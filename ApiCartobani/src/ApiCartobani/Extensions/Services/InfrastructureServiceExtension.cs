@@ -21,10 +21,10 @@ public static class ServiceRegistration
                 : throw new Exception("DB_CONNECTION_STRING environment variable is not set.");
         }
 
-        services.AddDbContext<CartobaniDbContext>(options =>
-            options.UseSqlServer(connectionString,
-                builder => builder.MigrationsAssembly(typeof(CartobaniDbContext).Assembly.FullName))
-                            .UseSnakeCaseNamingConvention());
+        //services.AddDbContext<CartobaniDbContext>(options =>
+        //    options.UseSqlServer(connectionString,
+        //        builder => builder.MigrationsAssembly(typeof(CartobaniDbContext).Assembly.FullName))
+        //                    .UseSnakeCaseNamingConvention());
 
         // Auth -- Do Not Delete
         if (!env.IsEnvironment(Consts.Testing.FunctionalTestingEnvName))

@@ -21,7 +21,7 @@ public class DeleteFluxCommandTests : TestBase
         var fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne);
 
-        var fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
+        fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne);
 
         var fakeTypeElementOne = FakeTypeElement.Generate(new FakeTypeElementForCreationDto().Generate());
@@ -65,7 +65,7 @@ public class DeleteFluxCommandTests : TestBase
         var fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne);
 
-        var fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
+        fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne);
 
         var fakeTypeElementOne = FakeTypeElement.Generate(new FakeTypeElementForCreationDto().Generate());

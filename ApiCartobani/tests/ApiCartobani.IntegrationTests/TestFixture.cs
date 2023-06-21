@@ -171,7 +171,7 @@ public class TestFixture
     {
         try
         {
-            var respawner = await Respawner.CreateAsync(connection, new RespawnerOptions
+            var respawner = await Respawner.CreateAsync("", new RespawnerOptions
             {
                 TablesToIgnore = new Table[] { "__EFMigrationsHistory" },
             });

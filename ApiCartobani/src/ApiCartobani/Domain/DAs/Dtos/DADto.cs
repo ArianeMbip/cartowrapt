@@ -1,4 +1,11 @@
+using ApiCartobani.Domain.Historiques;
+using ApiCartobani.Domain.PiecesJointes;
+using ApiCartobani.Domain.Universs;
+using ApiCartobani.Domain.InterfacesUtilisateur;
+using ApiCartobani.Domain.Contacts;
+
 namespace ApiCartobani.Domain.DAs.Dtos;
+
 
 public sealed class DADto 
 {
@@ -8,7 +15,7 @@ public sealed class DADto
         public string Status { get; set; }
         public string DomaineFonctionnel { get; set; }
         public string SousDomaineFonctionnel { get; set; }
-        public string Fonction                     { get; set; }
+        public string Fonction{ get; set; }
         public string Acteurs { get; set; }
         public string CasUtilisation { get; set; }
         public string DiagrammeSequence { get; set; }
@@ -17,5 +24,9 @@ public sealed class DADto
         public string ArchitectureApplicative { get; set; }
         public Guid IdActif { get; set; }
         public string ArchitectureDonnee { get; set; }
-        public string Property21 { get; set; }
+        public ICollection<Historique> Historiques { get; set; }
+        public ICollection<PieceJointe> PieceJointes { get; set; }
+        public ICollection<Univers> Univers { get; set; }
+        public ICollection<InterfaceUtilisateur> InterfaceUtilisateurs { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
 }

@@ -500,7 +500,7 @@
             <response code="400">Fonctionnalite has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the Fonctionnalite.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.AddGestionnaireActif(ApiCartobani.Domain.GestionnaireActif.Dtos.GestionnaireActifForCreationDto)">
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.AddGestionnaireActif(ApiCartobani.Domain.GestionnaireActifs.Dtos.GestionnaireActifForCreationDto)">
             <summary>
             Creates a new GestionnaireActif record.
             </summary>
@@ -516,7 +516,7 @@
             <response code="400">GestionnaireActif has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the GestionnaireActif.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.GetGestionnaireActif(ApiCartobani.Domain.GestionnaireActif.Dtos.GestionnaireActifParametersDto)">
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.GetGestionnaireActif(ApiCartobani.Domain.GestionnaireActifs.Dtos.GestionnaireActifParametersDto)">
              <summary>
              Gets a list of all GestionnaireActif.
              </summary>
@@ -554,7 +554,7 @@
             <response code="400">GestionnaireActif has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the GestionnaireActif.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.UpdateGestionnaireActif(System.Guid,ApiCartobani.Domain.GestionnaireActif.Dtos.GestionnaireActifForUpdateDto)">
+        <member name="M:ApiCartobani.Controllers.v1.GestionnaireActifController.UpdateGestionnaireActif(System.Guid,ApiCartobani.Domain.GestionnaireActifs.Dtos.GestionnaireActifForUpdateDto)">
             <summary>
             Updates an entire existing GestionnaireActif.
             </summary>
@@ -748,20 +748,6 @@
             <response code="400">InterfaceUtilisateur has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the InterfaceUtilisateur.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.PermissionsController.GetPermissions">
-            <summary>
-            Gets a list of all available permissions.
-            </summary>
-            <response code="200">List retrieved.</response>
-            <response code="500">There was an error getting the list of permissions.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.PermissionsController.GetAssignedPermissions">
-            <summary>
-            Gets a list of the current user's assigned permissions.
-            </summary>
-            <response code="200">List retrieved.</response>
-            <response code="500">There was an error getting the list of permissions.</response>
-        </member>
         <member name="M:ApiCartobani.Controllers.v1.PiecesJointesController.AddPieceJointe(ApiCartobani.Domain.PiecesJointes.Dtos.PieceJointeForCreationDto)">
             <summary>
             Creates a new PieceJointe record.
@@ -823,78 +809,6 @@
             <response code="204">PieceJointe updated.</response>
             <response code="400">PieceJointe has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the PieceJointe.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.RolePermissionsController.GetRolePermissions(ApiCartobani.Domain.RolePermissions.Dtos.RolePermissionParametersDto)">
-             <summary>
-             Gets a list of all RolePermissions.
-             </summary>
-             <response code="200">RolePermission list returned successfully.</response>
-             <response code="400">RolePermission has missing/invalid values.</response>
-             <response code="401">This request was not able to be authenticated.</response>
-             <response code="403">The required permissions to access this resource were not present in the given request.</response>
-             <response code="500">There was an error on the server while creating the RolePermission.</response>
-             <remarks>
-             Requests can be narrowed down with a variety of query string values:
-             ## Query String Parameters
-             - **PageNumber**: An integer value that designates the page of records that should be returned.
-             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
-             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
-             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
-                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
-                 - {Operator} is one of the Operators below
-                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
-            
-                | Operator | Meaning                       | Operator  | Meaning                                      |
-                | -------- | ----------------------------- | --------- | -------------------------------------------- |
-                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
-                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
-                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
-                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
-                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
-                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
-                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
-                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
-             </remarks>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.RolePermissionsController.GetRolePermission(System.Guid)">
-            <summary>
-            Gets a single RolePermission by ID.
-            </summary>
-            <response code="200">RolePermission record returned successfully.</response>
-            <response code="400">RolePermission has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the RolePermission.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.RolePermissionsController.AddRolePermission(ApiCartobani.Domain.RolePermissions.Dtos.RolePermissionForCreationDto)">
-            <summary>
-            Creates a new RolePermission record.
-            </summary>
-            <response code="201">RolePermission created.</response>
-            <response code="400">RolePermission has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the RolePermission.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.RolePermissionsController.UpdateRolePermission(System.Guid,ApiCartobani.Domain.RolePermissions.Dtos.RolePermissionForUpdateDto)">
-            <summary>
-            Updates an entire existing RolePermission.
-            </summary>
-            <response code="204">RolePermission updated.</response>
-            <response code="400">RolePermission has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the RolePermission.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.RolePermissionsController.DeleteRolePermission(System.Guid)">
-            <summary>
-            Deletes an existing RolePermission record.
-            </summary>
-            <response code="204">RolePermission deleted.</response>
-            <response code="400">RolePermission has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the RolePermission.</response>
         </member>
         <member name="M:ApiCartobani.Controllers.v1.RolePrivilegesController.AddRolePrivilege(ApiCartobani.Domain.RolePrivileges.Dtos.RolePrivilegeForCreationDto)">
             <summary>
@@ -958,13 +872,6 @@
             <response code="400">RolePrivilege has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the RolePrivilege.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.RolesController.GetRoles">
-            <summary>
-            Gets a list of all available roles.
-            </summary>
-            <response code="200">List retrieved.</response>
-            <response code="500">There was an error getting the list of roles.</response>
-        </member>
         <member name="M:ApiCartobani.Controllers.v1.TypeElementsController.AddTypeElement(ApiCartobani.Domain.TypeElements.Dtos.TypeElementForCreationDto)">
             <summary>
             Creates a new TypeElement record.
@@ -1027,7 +934,7 @@
             <response code="400">TypeElement has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the TypeElement.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.UniversController.AddUnivers(ApiCartobani.Domain.Univers.Dtos.UniversForCreationDto)">
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.AddUnivers(ApiCartobani.Domain.Universs.Dtos.UniversForCreationDto)">
             <summary>
             Creates a new Univers record.
             </summary>
@@ -1043,7 +950,7 @@
             <response code="400">Univers has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the Univers.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.UniversController.GetUnivers(ApiCartobani.Domain.Univers.Dtos.UniversParametersDto)">
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.GetUnivers(ApiCartobani.Domain.Universs.Dtos.UniversParametersDto)">
              <summary>
              Gets a list of all Univers.
              </summary>
@@ -1081,105 +988,13 @@
             <response code="400">Univers has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the Univers.</response>
         </member>
-        <member name="M:ApiCartobani.Controllers.v1.UniversController.UpdateUnivers(System.Guid,ApiCartobani.Domain.Univers.Dtos.UniversForUpdateDto)">
+        <member name="M:ApiCartobani.Controllers.v1.UniversController.UpdateUnivers(System.Guid,ApiCartobani.Domain.Universs.Dtos.UniversForUpdateDto)">
             <summary>
             Updates an entire existing Univers.
             </summary>
             <response code="204">Univers updated.</response>
             <response code="400">Univers has missing/invalid values.</response>
             <response code="500">There was an error on the server while creating the Univers.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.UsersController.AddRole(System.Guid,System.String)">
-            <summary>
-            Adds a new role to a user.
-            </summary>
-            <response code="204">Role added.</response>
-            <response code="400">Request has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while adding the role.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.UsersController.RemoveRole(System.Guid,System.String)">
-            <summary>
-            Removes a role from a User
-            </summary>
-            <response code="204">Role removed.</response>
-            <response code="400">Request has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while removing the UserRole.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.UsersController.GetUsers(ApiCartobani.Domain.Users.Dtos.UserParametersDto)">
-             <summary>
-             Gets a list of all Users.
-             </summary>
-             <response code="200">User list returned successfully.</response>
-             <response code="400">User has missing/invalid values.</response>
-             <response code="401">This request was not able to be authenticated.</response>
-             <response code="403">The required permissions to access this resource were not present in the given request.</response>
-             <response code="500">There was an error on the server while creating the User.</response>
-             <remarks>
-             Requests can be narrowed down with a variety of query string values:
-             ## Query String Parameters
-             - **PageNumber**: An integer value that designates the page of records that should be returned.
-             - **PageSize**: An integer value that designates the number of records returned on the given page that you would like to return. This value is capped by the internal MaxPageSize.
-             - **SortOrder**: A comma delimited ordered list of property names to sort by. Adding a `-` before the name switches to sorting descendingly.
-             - **Filters**: A comma delimited list of fields to filter by formatted as `{Name}{Operator}{Value}` where
-                 - {Name} is the name of a filterable property. You can also have multiple names (for OR logic) by enclosing them in brackets and using a pipe delimiter, eg. `(LikeCount|CommentCount)>10` asks if LikeCount or CommentCount is >10
-                 - {Operator} is one of the Operators below
-                 - {Value} is the value to use for filtering. You can also have multiple values (for OR logic) by using a pipe delimiter, eg.`Title@= new|hot` will return posts with titles that contain the text "new" or "hot"
-            
-                | Operator | Meaning                       | Operator  | Meaning                                      |
-                | -------- | ----------------------------- | --------- | -------------------------------------------- |
-                | `==`     | Equals                        |  `!@=`    | Does not Contains                            |
-                | `!=`     | Not equals                    |  `!_=`    | Does not Starts with                         |
-                | `>`      | Greater than                  |  `@=*`    | Case-insensitive string Contains             |
-                | `&lt;`   | Less than                     |  `_=*`    | Case-insensitive string Starts with          |
-                | `>=`     | Greater than or equal to      |  `==*`    | Case-insensitive string Equals               |
-                | `&lt;=`  | Less than or equal to         |  `!=*`    | Case-insensitive string Not equals           |
-                | `@=`     | Contains                      |  `!@=*`   | Case-insensitive string does not Contains    |
-                | `_=`     | Starts with                   |  `!_=*`   | Case-insensitive string does not Starts with |
-             </remarks>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.UsersController.GetUser(System.Guid)">
-            <summary>
-            Gets a single User by ID.
-            </summary>
-            <response code="200">User record returned successfully.</response>
-            <response code="400">User has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the User.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.UsersController.AddUser(ApiCartobani.Domain.Users.Dtos.UserForCreationDto)">
-            <summary>
-            Creates a new User record.
-            </summary>
-            <response code="201">User created.</response>
-            <response code="400">User has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the User.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.UsersController.UpdateUser(System.Guid,ApiCartobani.Domain.Users.Dtos.UserForUpdateDto)">
-            <summary>
-            Updates an entire existing User.
-            </summary>
-            <response code="204">User updated.</response>
-            <response code="400">User has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the User.</response>
-        </member>
-        <member name="M:ApiCartobani.Controllers.v1.UsersController.DeleteUser(System.Guid)">
-            <summary>
-            Deletes an existing User record.
-            </summary>
-            <response code="204">User deleted.</response>
-            <response code="400">User has missing/invalid values.</response>
-            <response code="401">This request was not able to be authenticated.</response>
-            <response code="403">The required permissions to access this resource were not present in the given request.</response>
-            <response code="500">There was an error on the server while creating the User.</response>
         </member>
         <member name="M:ApiCartobani.Controllers.v1.ValeurAttributsController.AddValeurAttribut(ApiCartobani.Domain.ValeurAttributs.Dtos.ValeurAttributForCreationDto)">
             <summary>
@@ -1283,7 +1098,7 @@
             The database configuration for Fonctionnalites. 
             </summary>
         </member>
-        <member name="M:ApiCartobani.Databases.EntityConfigurations.GestionnaireActifConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.GestionnaireActif.GestionnaireActif})">
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.GestionnaireActifConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.GestionnaireActifs.GestionnaireActif})">
             <summary>
             The database configuration for GestionnaireActif. 
             </summary>
@@ -1308,11 +1123,6 @@
             The database configuration for PiecesJointes. 
             </summary>
         </member>
-        <member name="M:ApiCartobani.Databases.EntityConfigurations.RolePermissionConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.RolePermissions.RolePermission})">
-            <summary>
-            The database configuration for RolePermissions. 
-            </summary>
-        </member>
         <member name="M:ApiCartobani.Databases.EntityConfigurations.RolePrivilegeConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.RolePrivileges.RolePrivilege})">
             <summary>
             The database configuration for RolePrivileges. 
@@ -1323,54 +1133,14 @@
             The database configuration for TypeElements. 
             </summary>
         </member>
-        <member name="M:ApiCartobani.Databases.EntityConfigurations.UniversConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Univers.Univers})">
+        <member name="M:ApiCartobani.Databases.EntityConfigurations.UniversConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Universs.Univers})">
             <summary>
             The database configuration for Univers. 
-            </summary>
-        </member>
-        <member name="M:ApiCartobani.Databases.EntityConfigurations.UserConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Users.User})">
-            <summary>
-            The database configuration for Users. 
-            </summary>
-        </member>
-        <member name="M:ApiCartobani.Databases.EntityConfigurations.UserRoleConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.Users.UserRole})">
-            <summary>
-            The database configuration for UserRoles. 
             </summary>
         </member>
         <member name="M:ApiCartobani.Databases.EntityConfigurations.ValeurAttributConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{ApiCartobani.Domain.ValeurAttributs.ValeurAttribut})">
             <summary>
             The database configuration for ValeurAttributs. 
-            </summary>
-        </member>
-        <member name="P:ApiCartobani.Domain.Addresses.Address.Line1">
-            <summary>
-            Address line 1 (e.g., street, PO Box, or company name).
-            </summary>
-        </member>
-        <member name="P:ApiCartobani.Domain.Addresses.Address.Line2">
-            <summary>
-            Address line 2 (e.g., apartment, suite, unit, or building).
-            </summary>
-        </member>
-        <member name="P:ApiCartobani.Domain.Addresses.Address.City">
-            <summary>
-            City, district, suburb, town, or village.
-            </summary>
-        </member>
-        <member name="P:ApiCartobani.Domain.Addresses.Address.State">
-            <summary>
-            State, county, province, or region.
-            </summary>
-        </member>
-        <member name="P:ApiCartobani.Domain.Addresses.Address.PostalCode">
-            <summary>
-            ZIP or postal code.
-            </summary>
-        </member>
-        <member name="P:ApiCartobani.Domain.Addresses.Address.Country">
-            <summary>
-            Two-letter country code <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">(ISO 3166-1 alpha-2)</a>.
             </summary>
         </member>
         <member name="M:ApiCartobani.Extensions.Services.WebAppServiceConfiguration.AddBoundaryServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Reflection.Assembly[])">

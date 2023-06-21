@@ -2,12 +2,21 @@ using Serilog;
 using ApiCartobani.Extensions.Application;
 using ApiCartobani.Extensions.Host;
 using ApiCartobani.Extensions.Services;
+using ApiCartobani.Domain.Actifs.Services;
+using ApiCartobani.Databases;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.AddLoggingConfiguration(builder.Environment);
 
 builder.ConfigureServices();
 var app = builder.Build();
+
+
+//builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddSwaggerGen();
+
+
+//builder.Services.AddHealthChecks();
 
 if (builder.Environment.IsDevelopment())
 {

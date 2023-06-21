@@ -38,7 +38,9 @@ public static class GetActifList
 
         public async Task<PagedList<ActifDto>> Handle(Query request, CancellationToken cancellationToken)
         {
+            //var collection = _actifRepository.Query().AsNoTracking().Include((p) => p.ValeurAttributs);
             var collection = _actifRepository.Query().AsNoTracking();
+            //var collection = _actifRepository.Query();
 
             var sieveModel = new SieveModel
             {

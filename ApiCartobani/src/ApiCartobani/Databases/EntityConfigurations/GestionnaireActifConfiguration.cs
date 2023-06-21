@@ -1,6 +1,6 @@
 namespace ApiCartobani.Databases.EntityConfigurations;
 
-using ApiCartobani.Domain.GestionnaireActif;
+using ApiCartobani.Domain.GestionnaireActifs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

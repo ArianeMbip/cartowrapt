@@ -12,7 +12,7 @@ public sealed class IconeRepository : GenericRepository<Icone>, IIconeRepository
 {
     private readonly CartobaniDbContext _dbContext;
 
-    public IconeRepository(CartobaniDbContext dbContext) : base(dbContext)
+    public IconeRepository(CartobaniDbContext dbContext) : base(dbContext, "Icones")
     {
         _dbContext = dbContext;
     }

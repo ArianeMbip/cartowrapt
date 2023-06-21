@@ -18,6 +18,7 @@
     <PackageReference Include="Ardalis.SmartEnum" Version="2.1.0" />
     <PackageReference Include="AutoBogus" Version="2.13.1" />
     <PackageReference Include="Bogus" Version="34.0.2" />
+    <PackageReference Include="CData.MongoDB" Version="22.0.8462" />
     <PackageReference Include="EFCore.NamingConventions" Version="6.0.0" />
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
@@ -42,6 +43,8 @@
     <PackageReference Include="MongoDB.Driver" Version="2.19.2" />
     <PackageReference Include="MongoDB.Driver.Core" Version="2.19.2" />
     <PackageReference Include="MongoFramework" Version="0.28.1" />
+    <PackageReference Include="ParkBee.MongoDb" Version="1.2.2" />
+    <PackageReference Include="ParkBee.MongoDb.DependencyInjection" Version="1.0.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
 
     <PackageReference Include="Sieve" Version="2.5.5" />

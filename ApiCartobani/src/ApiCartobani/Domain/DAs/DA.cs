@@ -12,7 +12,7 @@ using System.Runtime.Serialization;
 using ApiCartobani.Domain.Actifs;
 using ApiCartobani.Domain.Historiques;
 using ApiCartobani.Domain.ValeurAttributs;
-using ApiCartobani.Domain.Univers;
+using ApiCartobani.Domain.Universs;
 using ApiCartobani.Domain.InterfacesUtilisateur;
 using ApiCartobani.Domain.Contacts;
 using ApiCartobani.Domain.Composants;
@@ -100,7 +100,7 @@ public class DA : BaseEntity
     [IgnoreDataMember]
     public virtual ICollection<Composant> Composants { get; private set; }
 
-    public virtual string Property21 { get; private set; }
+   
 
 
     public static DA Create(DAForCreationDto dAForCreationDto)
@@ -109,21 +109,21 @@ public class DA : BaseEntity
 
         var newDA = new DA();
 
-        newDA.Contexte = dAForCreationDto.Contexte;
-        newDA.Objectifs = dAForCreationDto.Objectifs;
-        newDA.Status = dAForCreationDto.Status;
-        newDA.DomaineFonctionnel = dAForCreationDto.DomaineFonctionnel;
-        newDA.SousDomaineFonctionnel = dAForCreationDto.SousDomaineFonctionnel;
-        newDA.Fonction = dAForCreationDto.Fonction                    ;
-        newDA.Acteurs = dAForCreationDto.Acteurs;
-        newDA.CasUtilisation = dAForCreationDto.CasUtilisation;
-        newDA.DiagrammeSequence = dAForCreationDto.DiagrammeSequence;
-        newDA.ArchitectureFonctionnelle = dAForCreationDto.ArchitectureFonctionnelle;
-        newDA.ArchitectureTechnique = dAForCreationDto.ArchitectureTechnique;
-        newDA.ArchitectureApplicative = dAForCreationDto.ArchitectureApplicative;
-        newDA.IdActif = dAForCreationDto.IdActif;
-        newDA.ArchitectureDonnee = dAForCreationDto.ArchitectureDonnee;
-        newDA.Property21 = dAForCreationDto.Property21;
+        //newDA.Contexte = dAForCreationDto.Contexte;
+        //newDA.Objectifs = dAForCreationDto.Objectifs;
+        //newDA.Status = dAForCreationDto.Status;
+        //newDA.DomaineFonctionnel = dAForCreationDto.DomaineFonctionnel;
+        //newDA.SousDomaineFonctionnel = dAForCreationDto.SousDomaineFonctionnel;
+        //newDA.Fonction = dAForCreationDto.Fonction                    ;
+        //newDA.Acteurs = dAForCreationDto.Acteurs;
+        //newDA.CasUtilisation = dAForCreationDto.CasUtilisation;
+        //newDA.DiagrammeSequence = dAForCreationDto.DiagrammeSequence;
+        //newDA.ArchitectureFonctionnelle = dAForCreationDto.ArchitectureFonctionnelle;
+        //newDA.ArchitectureTechnique = dAForCreationDto.ArchitectureTechnique;
+        //newDA.ArchitectureApplicative = dAForCreationDto.ArchitectureApplicative;
+        ////newDA.IdActif = dAForCreationDto.IdActif;
+        //newDA.ArchitectureDonnee = dAForCreationDto.ArchitectureDonnee;
+       
 
         newDA.QueueDomainEvent(new DACreated(){ DA = newDA });
         
@@ -146,9 +146,9 @@ public class DA : BaseEntity
         ArchitectureFonctionnelle = dAForUpdateDto.ArchitectureFonctionnelle;
         ArchitectureTechnique = dAForUpdateDto.ArchitectureTechnique;
         ArchitectureApplicative = dAForUpdateDto.ArchitectureApplicative;
-        IdActif = dAForUpdateDto.IdActif;
+        //IdActif = dAForUpdateDto.IdActif;
         ArchitectureDonnee = dAForUpdateDto.ArchitectureDonnee;
-        Property21 = dAForUpdateDto.Property21;
+       
 
         QueueDomainEvent(new DAUpdated(){ Id = Id });
         return this;

@@ -12,7 +12,7 @@ public sealed class ActifRepository : GenericRepository<Actif>, IActifRepository
 {
     private readonly CartobaniDbContext _dbContext;
 
-    public ActifRepository(CartobaniDbContext dbContext) : base(dbContext)
+    public ActifRepository(CartobaniDbContext dbContext) : base(dbContext, "Actifs")
     {
         _dbContext = dbContext;
     }

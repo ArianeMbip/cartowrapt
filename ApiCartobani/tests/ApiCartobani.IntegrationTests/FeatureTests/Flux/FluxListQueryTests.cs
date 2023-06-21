@@ -23,8 +23,8 @@ public class FluxListQueryTests : TestBase
         var fakeActifTwo = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne, fakeActifTwo);
 
-        var fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
-        var fakeActifTwo = FakeActif.Generate(new FakeActifForCreationDto().Generate());
+         fakeActifOne = FakeActif.Generate(new FakeActifForCreationDto().Generate());
+         fakeActifTwo = FakeActif.Generate(new FakeActifForCreationDto().Generate());
         await InsertAsync(fakeActifOne, fakeActifTwo);
 
         var fakeTypeElementOne = FakeTypeElement.Generate(new FakeTypeElementForCreationDto().Generate());

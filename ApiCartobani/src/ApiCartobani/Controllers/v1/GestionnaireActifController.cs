@@ -1,7 +1,7 @@
 namespace ApiCartobani.Controllers.v1;
 
-using ApiCartobani.Domain.GestionnaireActif.Features;
-using ApiCartobani.Domain.GestionnaireActif.Dtos;
+using ApiCartobani.Domain.GestionnaireActifs.Features;
+using ApiCartobani.Domain.GestionnaireActifs.Dtos;
 using ApiCartobani.Wrappers;
 using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;

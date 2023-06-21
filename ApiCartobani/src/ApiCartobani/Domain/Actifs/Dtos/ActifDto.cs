@@ -1,3 +1,8 @@
+using ApiCartobani.Domain.ValeurAttributs;
+using ApiCartobani.Domain.GestionnaireActifs;
+using ApiCartobani.Domain.ValeurAttributs.Dtos;
+using ApiCartobani.Domain.GestionnaireActifs.Dtos;
+
 namespace ApiCartobani.Domain.Actifs.Dtos;
 
 public sealed class ActifDto 
@@ -12,5 +17,7 @@ public sealed class ActifDto
         public Guid TypeActif { get; set; }
         public Guid PreVersion { get; set; }
         public Guid Hierarchie { get; set; }
+        public ICollection<ValeurAttributDto> ValeurAttributs { get; set; }
+        public ICollection<GestionnaireActifDto> GestionnaireActif { get; set; }
 
 }
