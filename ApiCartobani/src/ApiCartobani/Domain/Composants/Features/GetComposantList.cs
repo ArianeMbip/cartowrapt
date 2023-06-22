@@ -39,6 +39,7 @@ public static class GetComposantList
         public async Task<PagedList<ComposantDto>> Handle(Query request, CancellationToken cancellationToken)
         {
             var collection = _composantRepository.Query().AsNoTracking();
+            
 
             var sieveModel = new SieveModel
             {
@@ -46,8 +47,8 @@ public static class GetComposantList
                 Filters = request.QueryParameters.Filters
             };
 
-            var appliedCollection = _sieveProcessor.Apply(sieveModel, collection);
-            var dtoCollection = appliedCollection
+            //var appliedCollection = _sieveProcessor.Apply(sieveModel, collection);
+            var dtoCollection = collection
                 .ProjectToType<ComposantDto>();
 
             return await PagedList<ComposantDto>.CreateAsync(dtoCollection,

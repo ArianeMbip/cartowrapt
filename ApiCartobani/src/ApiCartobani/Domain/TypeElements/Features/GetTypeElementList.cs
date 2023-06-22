@@ -10,6 +10,7 @@ using Mapster;
 using MediatR;
 using Sieve.Models;
 using Sieve.Services;
+using System.Linq.Expressions;
 
 public static class GetTypeElementList
 {
@@ -38,22 +39,34 @@ public static class GetTypeElementList
 
         public async Task<PagedList<TypeElementDto>> Handle(Query request, CancellationToken cancellationToken)
         {
-            var collection = _typeElementRepository.Query().AsNoTracking();
-
-            var sieveModel = new SieveModel
+            try
             {
-                Sorts = request.QueryParameters.SortOrder ?? "-CreatedOn",
-                Filters = request.QueryParameters.Filters
-            };
+                var collection1 = await _typeElementRepository.GetAllAsync();
+                Console.WriteLine($"{this.GetType()}: collection1={collection1.Count}");
 
-            var appliedCollection = _sieveProcessor.Apply(sieveModel, collection);
-            var dtoCollection = appliedCollection
-                .ProjectToType<TypeElementDto>();
+                return new PagedList<TypeElementDto>(_mapper.Map<List<TypeElementDto>>(collection1), collection1.Count, 1, collection1.Count);
+/*
+                var collection = _typeElementRepository.Query().AsNoTracking();
 
-            return await PagedList<TypeElementDto>.CreateAsync(dtoCollection,
-                request.QueryParameters.PageNumber,
-                request.QueryParameters.PageSize,
-                cancellationToken);
+                var sieveModel = new SieveModel
+                {
+                    Sorts = request.QueryParameters.SortOrder ?? "-CreatedOn",
+                    Filters = request.QueryParameters.Filters
+                };
+
+                // var appliedCollection = _sieveProcessor.Apply(sieveModel, collection);
+                var dtoCollection = collection
+                    .ProjectToType<TypeElementDto>();
+
+                return await PagedList<TypeElementDto>.CreateAsync(dtoCollection,
+                    request.QueryParameters.PageNumber,
+                    request.QueryParameters.PageSize,
+                    cancellationToken);*/
+            } catch(Exception exe)
+            {
+                Console.WriteLine($"{this.GetType()}: Exception {exe.Message} StackTrace = {exe.StackTrace}");
+                throw exe;
+            }
         }
     }
 }

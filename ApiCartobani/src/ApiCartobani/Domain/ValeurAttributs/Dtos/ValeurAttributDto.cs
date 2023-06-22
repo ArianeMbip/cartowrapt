@@ -10,5 +10,5 @@ public sealed class ValeurAttributDto
     //public Guid Attribut { get; set; }
     public AttributDto Attribut { get; set; }
     //public Guid Environnement { get; set; }
-    public EnvironnementDto environnement{ get; set; }
+    public EnvironnementDto Environnement{ get; set; }
 }

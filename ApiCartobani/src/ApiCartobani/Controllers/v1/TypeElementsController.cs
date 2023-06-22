@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Threading.Tasks;
 using System.Threading;
 using MediatR;
+using ApiCartobani.Domain.TypeElements.Services;
 
 [ApiController]
 [Route("api/typeelements")]
@@ -17,10 +18,12 @@ using MediatR;
 public sealed class TypeElementsController: ControllerBase
 {
     private readonly IMediator _mediator;
+    private readonly ITypeElementRepository _typeElementRepository;
 
-    public TypeElementsController(IMediator mediator)
+    public TypeElementsController(IMediator mediator, ITypeElementRepository typeElementRepository)
     {
         _mediator = mediator;
+        _typeElementRepository = typeElementRepository;
     }
     
 
@@ -124,6 +127,12 @@ public sealed class TypeElementsController: ControllerBase
         return Ok(queryResponse);
     }
 
+    //[HttpGet("search")]
+    //public async Task<IActionResult> SearchByProperty(string propertyName, string searchValue)
+    //{
+    //    var results = await _typeElementRepository.SearchByProperty(propertyName, searchValue);
+    //    return Ok(results);
+    //}
 
     /// <summary>
     /// Deletes an existing TypeElement record.

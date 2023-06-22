@@ -3,9 +3,11 @@ namespace ApiCartobani.Domain.TypeElements.Services;
 using ApiCartobani.Domain.TypeElements;
 using ApiCartobani.Databases;
 using ApiCartobani.Services;
+using MongoDB.Driver;
 
 public interface ITypeElementRepository : IGenericRepository<TypeElement>
 {
+    //public Task<List<TypeElement>> SearchByProperty(string propertyName, string searchValue);
 }
 
 public sealed class TypeElementRepository : GenericRepository<TypeElement>, ITypeElementRepository
@@ -16,4 +18,6 @@ public sealed class TypeElementRepository : GenericRepository<TypeElement>, ITyp
     {
         _dbContext = dbContext;
     }
+
+   
 }
